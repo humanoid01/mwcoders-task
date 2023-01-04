@@ -9,7 +9,6 @@ interface Props {
   setIsSecondInputActive: Function;
   firstNum: string;
   secondNum: string;
-
   firstInputRef: React.RefObject<HTMLInputElement>;
   secondInputRef: React.RefObject<HTMLInputElement>;
   result: string | number;
@@ -44,6 +43,29 @@ export const CalculatorSingle = ({
     'C',
   ];
   const buttonOperations: string[] = ['+', '-', '/', '*'];
+  const checkSyntax = (str: string, isFirst: boolean) => {
+    if (isNaN(Number(str)) && str === '.') {
+      alert('Please provide correct syntax');
+      return;
+    }
+
+    if (isFirst) {
+      if ((str === '.' && firstNum.includes('.')) || isNaN(Number(str))) {
+        alert(`Please provide correct syntax`);
+        return;
+      } else {
+        setFirstNum(str);
+      }
+    } else {
+      if ((str === '.' && secondNum.includes('.')) || isNaN(Number(str))) {
+        alert(`Please provide correct syntax`);
+        return;
+      } else {
+        setSecondNum(str);
+      }
+    }
+  };
+
   return (
     <div>
       <h3> Hit the operation button to see the result!</h3>
@@ -90,7 +112,9 @@ export const CalculatorSingle = ({
                   setIsSecondInputActive(false);
                 }}
                 required
-                onChange={e => setFirstNum(e.target.value)}
+                onChange={e => {
+                  checkSyntax(e.target.value, true);
+                }}
               />
               <input
                 value={secondNum}
@@ -101,7 +125,9 @@ export const CalculatorSingle = ({
                   setIsSecondInputActive(true);
                 }}
                 required
-                onChange={e => setSecondNum(e.target.value)}
+                onChange={e => {
+                  checkSyntax(e.target.value, false);
+                }}
               />
               <input
                 type='number'

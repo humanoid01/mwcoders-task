@@ -42,7 +42,7 @@ export const Calculator = () => {
     getResults();
   };
 
-  const checkTheComma = (buttonVal: string, isFirstNum: boolean) => {
+  const checkSyntax = (buttonVal: string, isFirstNum: boolean) => {
     if (isFirstNum) {
       if (buttonVal === '.' && firstNum.includes('.')) {
         alert(`You've already used comma.`);
@@ -50,6 +50,10 @@ export const Calculator = () => {
       }
       setFirstNum(prev => prev + buttonVal);
     } else {
+      if (isNaN(Number(secondNum))) {
+        alert('Please use numbers only');
+        return;
+      }
       if (buttonVal === '.' && secondNum.includes('.')) {
         alert(`You've already used comma.`);
         return;
@@ -60,9 +64,9 @@ export const Calculator = () => {
 
   const produceToInput = (buttonVal: string) => {
     if (firstInputRef.current && isFirstInputActive) {
-      checkTheComma(buttonVal, true);
+      checkSyntax(buttonVal, true);
     } else if (secondInputRef.current && isSecondInputActive) {
-      checkTheComma(buttonVal, false);
+      checkSyntax(buttonVal, false);
     }
     return;
   };
