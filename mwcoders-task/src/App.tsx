@@ -2,7 +2,6 @@ import { Calculator } from './components/Calculator/Calculator';
 import { MainPage } from './components/MainPage/MainPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar/Navbar';
-
 function App() {
   return (
     <BrowserRouter>
