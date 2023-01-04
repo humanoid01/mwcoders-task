@@ -1,0 +1,71 @@
+h3 {
+  text-align: center;
+}
+
+.calc {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  input {
+    width: 8.5rem;
+  }
+  .button-box {
+    display: grid;
+    width: 400px;
+    grid-template-columns: 1fr 1fr;
+    margin: 1rem;
+
+    .button-box-left {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .button-box-right {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1.2rem;
+
+      &-oper {
+        display: grid;
+        gap: 1.2rem;
+      }
+      &-inp {
+        display: grid;
+        gap: 2rem;
+      }
+    }
+  }
+
+  .button {
+    width: 2.5rem;
+    height: 1.9rem;
+    border: none;
+    border-radius: 0.5rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    border-top: 2px solid transparent;
+  }
+
+  .button.pink {
+    color: black;
+    background-color: #ff4561;
+    border-bottom: black 2px solid;
+  }
+  .button.black {
+    color: white;
+    background-color: #303030;
+    border-bottom: black 2px solid;
+    border-top: 2px #303030 solid;
+  }
+
+  .pink:active {
+    border-top: black 2px solid;
+    border-bottom: #ff4561 2px solid;
+  }
+  .black:active {
+    border-top: black 2px solid;
+    border-bottom: #303030 2px solid;
+  }
+}
