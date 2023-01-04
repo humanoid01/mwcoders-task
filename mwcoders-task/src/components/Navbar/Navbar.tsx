@@ -9,7 +9,7 @@ const linkStyle = {
 export const Navbar = () => {
   return (
     <div className='nav'>
-      <Link style={linkStyle} to='mwcoders-task'>
+      <Link style={linkStyle} to='mwcoders-task/'>
         <button className='btn'>Main Page</button>
       </Link>
       <Link style={linkStyle} to='mwcoders-task/calculator'>

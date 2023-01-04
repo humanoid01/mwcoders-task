@@ -7,7 +7,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path='mwcoders-task' element={<MainPage />} />
+        <Route path='mwcoders-task/' element={<MainPage />} />
         <Route path='mwcoders-task/calculator' element={<Calculator />} />
       </Routes>
     </BrowserRouter>
